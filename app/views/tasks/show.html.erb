@@ -1,11 +1,15 @@
-<h1><%= @task.title%></h1>
-<h3><%= @task.details%></h3>
-
-<p >
-  <input type="checkbox" name="" id="">
-  <span>This task is completed  .</span>
-  <span><%= link_to "Edit", "/tasks/#{@task.id}/edit"%></span>
-  <span><%= link_to "Destroy", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></span>
-</p>
-
-<%= link_to "Back to list.", tasks_path()%>
+<div class="container mt-5">
+  <div class="card" style="width: 18rem;">
+    <div class="card-header text-center">
+      <%= @task.title %>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">- <%= @task.details %></li>
+    </ul>
+    <p >
+      <span><%= link_to "Edit", "/tasks/#{@task.id}/edit" %></span>
+      <span><%= link_to "Destroy", task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></span>
+    </p>
+  </div>
+  <%= link_to "Back to list.", tasks_path(), class: "btn btn-secondary" %>
+</div>
